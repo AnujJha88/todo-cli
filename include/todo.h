@@ -43,7 +43,19 @@ public:
 
     std::vector<Todo> get_all() const;
     std::vector<Todo> filter_by_status(Status status) const;
+    std::vector<Todo> filter_by_priority(Priority priority) const;
+    std::vector<Todo> filter_by_tags(std::vector<std::string> tags) const;
+    std::vector<Todo> filter_by_date(time_t date) const;
+    std::vector<Todo> search(const std::string &query) const;
+    std::vector<Todo> get_overdue() const;
 
+    Todo* find_by_id( int id);
+    void sort_priority();
+    void sort_by_created();
+    void sort_by_due();
+
+    size_t size() const;
+    int get_next_id(){return next_id;}
 };
 
 #endif
